@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nossos Momentos</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(180deg, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 390px;
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    img {
+      width: 100%;
+      border-radius: 15px;
+      margin: 15px 0;
+    }
+
+    .date {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background: #ff5e78;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 25px;
+      font-size: 16px;
+      width: 100%;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container" id="app">
+  <p>
+    Desde que te conheci, a vida começou a fazer mais sentido.
+    Essa é só uma das formas de eu conseguir demonstrar todo esse sentimento.
+    Peço perdão pelos momentos que posso ter te machucado.
+    Mas espero que possamos continuar juntos independente do problema e sempre nos resolver.
+    Até porque você é quem eu quero, Ana Luiza. 💖
+  </p>
+  <button onclick="start()">Nossos momentos</button>
+</div>
+
+<script>
+  const moments = [
+    {
+      date: "04/04/2025 — Conhecendo",
+      image: "foto1.jpg",
+      text: `Foi a primeira mensagem que eu enviei pra você,
+      da maneira mais inesperada: “zoio bunito da miséra” funcionou.
+
+    E eu DOU GRAÇAS A DEUS por ter funcionado porque hoje eu tenho tudo.
+
+    
+      E o meu tudo é você <3.`
+    },
+    {
+      date: "14/04/2025 — Primeira vez que eu te vi",
+      image: "foto2.jpg",
+      text: `Você disse que estava feia,
+      mas nunca esteve tão linda. só conseguia pensar em como eu posso conhecer melhor esta beldade na minha frente.
+
+     Lembro até hoje daquele sua blusa de manga longa vermelha, da mesma cor do seu rosto depois do nosso primeiro selinho. ou melhor
+
+      Selada.`
+    },
+    {
+      date: "14/06/2025 — Aliança",
+      image: "foto3.jpg",
+      text: `Ia ficar muito na cara se eu fosse medir seu dedo então peguei logo a medida do meu amigo mais míudo breno KKKKKKK
+
+AINDA ASSIM FICOU LARGO mas mais largo ainda é o espaço que você tem no meu coração.`
+    },
+    {
+      date: "18/06/2025 — Pedido",
+      image: "foto4.jpg",
+      text: `E como sempre, no pedido eu chorei..
+
+      Não por medo, não por querer, mas pois naquele momento eu decidi que você é a única que eu quero amar pro resto da minha vida. E isso me deixou muito feliz.`
+    },
+    {
+      date: "15/07/2025 — Festa Junina",
+      image: "foto5.jpg",
+      text: `Você estava perfeita.
+      O vestido, a bota, o perfume.
+
+      E depois…
+      10 minutos presos juntos.
+
+      Eu posso afirmar que nunca me senti tão livre com alguém.`
+    },
+    {
+      date: "Dias de hoje",
+      image: "foto6.jpg",
+      text: `Esse ano está sendo corrido pra todo mundo não vou mentir e olha que ele mal começou, mas eu ainda espero que você me escolha todos os dias. até porque eu vou te escolher todos os dias pro resto da minha vida. eu te amo<3 tome uma selada virtual pra você *MUAK MUAK*
+      Eu te escolho todos os dias,
+      Ana Luiza. ❤️`
+    }
+  ];
+
+  let index = 0;
+
+  function start() {
+    index = 0;
+    showMoment();
+  }
+
+  function showMoment() {
+    const m = moments[index];
+    document.getElementById("app").innerHTML = `
+      <div class="date">${m.date}</div>
+      <img src="${m.image}">
+      <p>${m.text.replace(/\n/g, "<br>")}</p>
+      <button onclick="next()">Continuar</button>
+    `;
+  }
+
+  function next() {
+    index++;
+    if (index < moments.length) {
+      showMoment();
+    } else {
+      document.getElementById("app").innerHTML = `
+        <h2>💖</h2>
+        <p>
+          Esses foram só alguns dos momentos de muitos que estão por vir.<br><br>
+          Eu te amo.
+        </p>
+      `;
+    }
+  }
+</script>
+
+</body>
+</html>
